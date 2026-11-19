@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- Paleta (variáveis CSS) ---------- */
+:root {
+    --ceu-claro: #bfe6ff;
+    --azul-aero: #4fc3f7;
+    --azul-vivo: #1f7de8;
+    --azul-profundo: #0a3d62;
+    --verde-agua: #8ff0d4;
+    --verde-grama: #79c14e;
+    --laranja: #ff9a1f;
+    --branco-vidro: rgba(255, 255, 255, 0.55);
+    --branco-vidro-forte: rgba(255, 255, 255, 0.78);
+    --borda-vidro: rgba(255, 255, 255, 0.65);
+    --texto-escuro: #10314a;
+    --sombra: 0 8px 32px rgba(10, 61, 98, 0.25);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Exo 2", "Segoe UI", Tahoma, sans-serif;
+    color: var(--texto-escuro);
+    min-height: 100vh;
+    /* Fundo estilo "aurora" do Frutiger Aero: céu -> água -> grama */
+    background:
+        radial-gradient(1100px 480px at 85% -8%, rgba(255, 255, 255, 0.65), transparent 60%),
+        radial-gradient(900px 520px at -10% 25%, rgba(143, 240, 212, 0.45), transparent 60%),
+        radial-gradient(700px 380px at 60% 115%, rgba(155, 225, 93, 0.5), transparent 65%),
+        linear-gradient(180deg, #bfe6ff 0%, #7ec8e3 38%, #3aa7c9 62%, #2e8b8b 82%, #79c14e 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: var(--azul-vivo);
+}
+
+/* ============================================================
+   BOLHAS DE FUNDO (fruto do arquivo js/main.js)
+   ============================================================ */
+.bolhas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bolha {
+    position: absolute;
+    bottom: -80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.25) 28%,
+        rgba(255, 255, 255, 0.06) 60%,
+        rgba(255, 255, 255, 0.18) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.35);
+    animation: subir linear infinite;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.9);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.85;
+    }
+    50% {
+        transform: translateY(-55vh) translateX(28px) scale(1);
+    }
+    100% {
+        transform: translateY(-115vh) translateX(-22px) scale(1.05);
+        opacity: 0;
+    }
+}
+
+/* ============================================================
+   HEADER (barra de vidro)
+   ============================================================ */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border-bottom: 1px solid var(--borda-vidro);
+    box-shadow: 0 4px 24px rgba(10, 61, 98, 0.15);
+}
+
+.barra-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 46px;
+    width: auto;
+    filter: drop-shadow(0 3px 6px rgba(10, 61, 98, 0.3));
+}
+
+nav {
+    flex: 1;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--texto-escuro);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.navbar li a:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-1px);
+}
+
+/* aba ativa: pílula glossy azul */
+.navbar li.ativo a {
+    background: linear-gradient(180deg, #b9e7ff 0%, #4fc3f7 45%, #1f9bd7 55%, #0d7bb8 100%);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 14px rgba(31, 125, 232, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.area-sessao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.area-sessao a {
+    text-decoration: none;
+    color: var(--azul-profundo);
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.area-sessao a:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
