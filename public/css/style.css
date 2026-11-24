@@ -1,0 +1,325 @@
+/* =========================================================
+   LastSave - estilo geral (vale para todas as abas)
+   Estilo: Frutiger Aero / sites dos anos 2000
+
+   Cores usadas:
+   azul ......... #1f7de8
+   azul escuro .. #0a3fb8
+   azul claro ... #8fd3ff
+   laranja ...... #ff9a1f
+   texto ........ #0c2d5e
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    font-size: 14px;
+    color: #0c2d5e;
+    background-color: #1f7de8;
+    background-image: url("../images/fundo-lastsave.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Caixa que centraliza o conteúdo */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header {
+    background: linear-gradient(#ffffff, #d9eeff);
+    border-bottom: 3px solid #1f7de8;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.logo {
+    height: 40px;
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+}
+
+.navbar a {
+    display: block;
+    padding: 6px 12px;
+    margin: 0 2px;
+    border-radius: 15px;
+    color: #0c2d5e;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.navbar a:hover {
+    background-color: #cfe9ff;
+}
+
+/* aba que está aberta */
+.navbar .agora a {
+    color: white;
+    background: linear-gradient(#8fd3ff, #1f7de8);
+    border: 1px solid #0a3fb8;
+}
+
+/* abas que precisam de login */
+.navbar .bloqueado a {
+    color: #6d86a8;
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+.botao {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-left: 4px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.botao-azul {
+    background: linear-gradient(#8fd3ff, #1f7de8);
+    border: 1px solid #0a3fb8;
+}
+
+.botao-laranja {
+    background: linear-gradient(#ffd27a, #ff9a1f);
+    border: 1px solid #e06a00;
+}
+
+/* para o botão de verdade (<button>) ficar igual ao link */
+button.botao {
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+/* "Olá, nome" no header de quem está logado */
+.ola {
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.botao:hover {
+    opacity: 0.8;
+}
+
+.botao-grande {
+    padding: 10px 24px;
+    margin: 0 5px;
+    font-size: 15px;
+}
+
+/* =========================================================
+   PAINEL (caixa branca transparente usada em tudo)
+   ========================================================= */
+.painel {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.titulo-secao {
+    color: #1f7de8;
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ff9a1f;
+}
+
+.subtitulo {
+    margin-bottom: 15px;
+}
+
+/* =========================================================
+   BANNER (primeira parte da home)
+   ========================================================= */
+.banner {
+    padding: 40px 0;
+}
+
+.painel-banner {
+    width: 50%;
+    text-align: center;
+}
+
+.banner-logo {
+    width: 75%;
+}
+
+.painel-banner h1 {
+    font-size: 22px;
+    margin: 8px 0;
+    color: #0a3fb8;
+}
+
+.painel-banner p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+.secao {
+    padding-bottom: 30px;
+}
+
+.secao p {
+    line-height: 1.5;
+}
+
+/* Sobre o projeto: texto + imagem lado a lado */
+.sobre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sobre-texto {
+    width: 52%;
+}
+
+.sobre-texto p {
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   IMAGENS
+   .img-vazia = lugar reservado para colocar a imagem depois
+   .foto      = imagem já colocada
+   ========================================================= */
+.img-vazia {
+    width: 44%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #5a7ba3;
+    font-weight: bold;
+    background-color: #e3f2ff;
+    border: 3px dashed #8fd3ff;
+    border-radius: 10px;
+}
+
+.foto {
+    width: 44%;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+/* =========================================================
+   CARDS (O que te espera lá dentro)
+   ========================================================= */
+.cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 23%;
+    background: linear-gradient(#ffffff, #e3f2ff);
+    border: 2px solid #8fd3ff;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.card .img-vazia {
+    width: 100%;
+    height: 110px;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.card h3 {
+    color: #1f7de8;
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.card p {
+    font-size: 13px;
+}
+
+.selo {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff9a1f;
+}
+
+/* =========================================================
+   VALORES
+   ========================================================= */
+.valores {
+    display: flex;
+    justify-content: space-between;
+}
+
+.valor {
+    width: 32%;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #ff9a1f;
+    background-color: #e3f2ff;
+}
+
+.valor h3 {
+    color: #0a3fb8;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+/* =========================================================
+   CONVITE FINAL
+   ========================================================= */
+.painel-convite {
+    text-align: center;
+}
+
+.painel-convite h2 {
+    color: #1f7de8;
+    font-size: 20px;
+}
+
+.painel-convite p {
+    margin: 8px 0 18px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+    background: linear-gradient(#2b8ff0, #0a3fb8);
+    border-top: 3px solid white;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 13px;
+}
