@@ -61,7 +61,8 @@
           </div>
           <div class="campo">
             <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
+            <input id="senha_input" type="password" placeholder="******" oninput="verificarSenha()" />
+            <div id="regras_senha" class="regras-senha"></div>
           </div>
           <div class="campo">
             <span>Confirmação da Senha:</span>
@@ -111,6 +112,18 @@
 
       finalizarAguardar();
       return false;
+    } else if (validarEmail(emailVar) == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "E-mail inválido! Ele precisa ter @ e terminar com .com ou .br.";
+      return false;
+    } else if (verificarSenha() == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "Senha fraca! Veja as regras embaixo do campo de senha.";
+      return false;
+    } else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "As senhas não conferem!";
+      return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
@@ -143,7 +156,10 @@
           limparFormulario();
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          resposta.text().then(function (texto) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = texto;
+          });
         }
       })
       .catch(function (resposta) {
@@ -152,6 +168,66 @@
       });
 
     return false;
+  }
+
+  function validarEmail(email) {
+    let posicaoArroba = email.indexOf("@");
+    let posicaoFinal = -1;
+
+    if (email.endsWith(".com")) {
+      posicaoFinal = email.length - 4;
+    } else if (email.endsWith(".br")) {
+      posicaoFinal = email.length - 3;
+    }
+
+    if (posicaoArroba <= 0) {
+      return false;
+    } else if (posicaoArroba != email.lastIndexOf("@")) {
+      return false;
+    } else if (posicaoFinal <= posicaoArroba + 1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function verificarSenha() {
+    let senha = senha_input.value;
+
+    let temTamanho = senha.length >= 8;
+    let temMaiuscula = false;
+    let temMinuscula = false;
+    let temNumero = false;
+    let temEspecial = false;
+
+    for (let i = 0; i < senha.length; i++) {
+      let caractere = senha[i];
+
+      if (caractere >= "A" && caractere <= "Z") {
+        temMaiuscula = true;
+      } else if (caractere >= "a" && caractere <= "z") {
+        temMinuscula = true;
+      } else if (caractere >= "0" && caractere <= "9") {
+        temNumero = true;
+      } else if (caractere != " ") {
+        temEspecial = true;
+      }
+    }
+
+    let regras = ["Mínimo de 8 caracteres", "Uma letra maiúscula", "Uma letra minúscula", "Um número", "Um caractere especial (! @ # $ ...)"];
+    let cumpridas = [temTamanho, temMaiuscula, temMinuscula, temNumero, temEspecial];
+
+    let html = "";
+    for (let i = 0; i < regras.length; i++) {
+      if (cumpridas[i]) {
+        html += `<p class="regra-ok">&#10004; ${regras[i]}</p>`;
+      } else {
+        html += `<p class="regra-erro">&#10006; ${regras[i]}</p>`;
+      }
+    }
+    regras_senha.innerHTML = html;
+
+    return temTamanho && temMaiuscula && temMinuscula && temNumero && temEspecial;
   }
 
   function limparFormulario() {
