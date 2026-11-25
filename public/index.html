@@ -7,6 +7,8 @@
     <title>LastSave | Início</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/lastsave.ico">
+    <!-- fonte pixelada de videogame (Google Fonts) usada no "LEVEL UP!" -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <script src="js/sessao.js"></script>
 </head>
 
@@ -54,6 +56,27 @@
         </div>
     </div>
 
+    <!-- ===================== LEVEL UP ===================== -->
+    <!-- quando o usuário está logado, o liberarMenu() (js/sessao.js) troca o conteúdo desta caixa -->
+    <div class="secao">
+        <div class="container">
+            <div class="painel painel-level" id="caixa_level">
+                <h2 class="texto-pixel">LEVEL UP!</h2>
+                <p>
+                    Você está no <b>level 1</b>: por enquanto só a página inicial está liberada.<br>
+                    Para <b>desbloquear as outras abas</b> e subir de level, faça seu cadastro!
+                </p>
+
+                <div class="barra-xp">
+                    <div class="xp" style="width: 20%"></div>
+                </div>
+                <p class="texto-xp">1 de 5 abas desbloqueadas</p>
+
+                <a class="botao botao-laranja botao-grande" href="cadastro.html">Subir de level</a>
+            </div>
+        </div>
+    </div>
+
     <!-- ===================== SOBRE O PROJETO ===================== -->
     <div class="secao">
         <div class="container">
@@ -78,8 +101,7 @@
                         </p>
                     </div>
 
-                    <!-- Troque este bloco por: <img class="foto" src="images/SUA-IMAGEM.jpg" alt="..."> -->
-                    <div class="img-vazia">Imagem: apresentação do projeto</div>
+                    <img class="foto" src="images/lastsave-banner-v2-transparente.svg" alt="Banner do LastSave">
                 </div>
             </div>
         </div>

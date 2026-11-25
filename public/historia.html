@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LastSave | História</title>
     <script src="js/sessao.js"></script>
+    <script src="js/historia.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/lastsave.ico">
 </head>
 
 <!-- validarSessao(): se o usuário não fez login, volta para a tela de login -->
-<body onload="validarSessao()">
+<!-- montarPlacar(): desenha o placar de vendas (js/historia.js) -->
+<body onload="validarSessao(); montarPlacar()">
 
     <!-- ===================== HEADER ===================== -->
-    <div class="header">
+    <div class="header" id="topo">
         <div class="container">
             <a href="index.html">
                 <img class="logo" src="images/lastsave-logo-v4-transparente.svg" alt="LastSave">
@@ -35,12 +37,499 @@
         </div>
     </div>
 
-    <!-- ===================== CONTEÚDO ===================== -->
+    <!-- ===================== INTRODUÇÃO ===================== -->
     <div class="banner">
         <div class="container">
-            <div class="painel painel-convite">
-                <h2>História dos Games</h2>
-                <p>Esta aba está em construção e será montada na próxima etapa.</p>
+            <div class="painel">
+                <h1 class="titulo-pagina">A História dos Games</h1>
+                <p>
+                    De experimentos em laboratório até a maior indústria de entretenimento do mundo.
+                    Escolha uma fase ou role a página para acompanhar tudo.
+                </p>
+
+                <p class="indice">
+                    <b>Ir para:</b>
+                    <a href="#inicio">Anos 50 e 60</a> |
+                    <a href="#anos70">Anos 70</a> |
+                    <a href="#fliperamas">Fliperamas</a> |
+                    <a href="#crise">Crise de 1983</a> |
+                    <a href="#nintendo">Nintendo</a> |
+                    <a href="#anos90">Anos 90</a> |
+                    <a href="#playstation">PlayStation</a> |
+                    <a href="#anos2000">Anos 2000</a> |
+                    <a href="#celulares">Celulares</a> |
+                    <a href="#anos2010">Anos 2010</a> |
+                    <a href="#anos2020">Anos 2020</a> |
+                    <a href="#guerra">Guerra dos Consoles</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         COMO COLOCAR AS IMAGENS:
+         troque  <div class="img-vazia">...</div>
+         por     <img class="foto" src="images/NOME-DO-ARQUIVO.jpg" alt="...">
+         (o nome sugerido de cada arquivo está escrito dentro do bloco)
+         ========================================================= -->
+
+    <!-- ===================== ANOS 50 E 60 ===================== -->
+    <div class="secao" id="inicio">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1958 - 1962</span> Tudo começou nos laboratórios</h2>
+                <p>
+                    Os primeiros jogos foram criados por <b>cientistas</b>, em computadores gigantes e caríssimos.
+                    <b>Tennis for Two</b> (1958) e <b>Spacewar!</b> (1962), feito por estudantes do MIT,
+                    mostraram que uma máquina também podia servir para diversão.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p01-spacewar.jpg" alt="Spacewar! rodando em um computador PDP-1">
+                        <p class="legenda">Spacewar! rodando em um computador PDP-1</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p02-tennisfortwo.jpg" alt="Tennis for Two exibido em um osciloscópio">
+                        <p class="legenda">Tennis for Two exibido em um osciloscópio</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ANOS 70 ===================== -->
+    <div class="secao" id="anos70">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1972</span> O videogame chega em casa</h2>
+                <p>
+                    <b>Ralph Baer</b> inventou o <b>Magnavox Odyssey</b>, o primeiro console doméstico.
+                    No mesmo ano, a <b>Atari</b> lançou o <b>Pong</b>, primeiro grande sucesso dos fliperamas.
+                    Deu tão certo que dezenas de empresas copiaram o jogo, e o excesso de clones lotou o mercado.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p02-Magnavox-Odyssey-Console-Set.jpg" alt="Magnavox Odyssey, o primeiro console doméstico">
+                        <p class="legenda">Magnavox Odyssey, o primeiro console doméstico</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p02-Signed_Pong_Cabinet.jpg" alt="Gabinete do fliperama Pong, da Atari">
+                        <p class="legenda">Gabinete do fliperama Pong, da Atari</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FLIPERAMAS E ATARI ===================== -->
+    <div class="secao" id="fliperamas">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1977 - 1982</span> A era de ouro dos fliperamas</h2>
+                <p>
+                    <b>Space Invaders</b>, <b>Pac-Man</b> e <b>Donkey Kong</b> criaram os primeiros personagens
+                    famosos dos games. Em casa, o <b>Atari 2600</b> popularizou os cartuchos e surgiu a
+                    <b>Activision</b>, a primeira empresa a fazer jogos para o console dos outros.
+                </p>
+
+                <div class="curiosidade">
+                    <b>Você sabia?</b> Nos Estados Unidos, os fliperamas chegaram a faturar mais que a música pop
+                    e o cinema de Hollywood.
+                </div>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p03-pac-man-cabinet.jpg" alt="Gabinete de Pac-Man">
+                        <p class="legenda">Gabinete de Pac-Man</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p03-fliperama-80s.jpg" alt="Fliperama dos anos 1980">
+                        <p class="legenda">Fliperama dos anos 1980</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p04-atari-2600.jpg" alt="Atari 2600 com joystick">
+                        <p class="legenda">Atari 2600 com joystick</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p04-Pitfall.jpg" alt="Cartucho de Pitfall!, da Activision">
+                        <p class="legenda">Cartucho de Pitfall!, da Activision</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CRISE DE 1983 ===================== -->
+    <div class="secao" id="crise">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1983</span> A grande crise</h2>
+
+                <div class="sobre">
+                    <div class="sobre-texto">
+                        <p>
+                            O mercado americano ficou lotado de <b>jogos ruins</b> e as pessoas perderam a confiança.
+                            A receita caiu de <b>US$ 3 bilhões</b> para apenas <b>US$ 100 milhões</b> em 1985.
+                        </p>
+                        <p>
+                            Muitas empresas faliram, a Atari foi vendida e o <b>Japão</b> assumiu a liderança dos games.
+                        </p>
+                    </div>
+
+                    <div class="figura-lado">
+                        <img class="foto" src="images/p05-Atari-E.T-New-Mexico.jpg" alt="Cartuchos de Atari descartados no aterro do Novo México">
+                        <p class="legenda">Cartuchos de Atari descartados no aterro do Novo México</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== NINTENDO ===================== -->
+    <div class="secao" id="nintendo">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1985</span> A Nintendo salva o mercado</h2>
+                <p>
+                    Com o <b>NES</b>, a Nintendo criou o <b>Selo de Qualidade</b> e passou a controlar quais jogos
+                    podiam sair para o console. Com <b>Super Mario Bros.</b>, <b>Zelda</b> e <b>Metroid</b>, o público voltou.
+                    Na mesma época cresceram Sega, Capcom, Konami e Square, com Mega Man, Castlevania e Final Fantasy.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p06-nes-zapper.jpg" alt="NES com a pistola Zapper e o controle">
+                        <p class="legenda">NES com a pistola Zapper e o controle</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p06-supermariobros.jpg" alt="Super Mario Bros. (NES)">
+                        <p class="legenda">Super Mario Bros. (NES)</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ANOS 90 ===================== -->
+    <div class="secao" id="anos90">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">Anos 90</span> 16 bits, portáteis e o 3D</h2>
+                <p>
+                    A Sega apostou no <b>Mega Drive</b> e no <b>Sonic</b>; a Nintendo respondeu com o <b>Super Nintendo</b>.
+                    O <b>Game Boy</b>, com <b>Tetris</b>, dominou os portáteis e viu nascer <b>Pokémon</b>.
+                    Nos computadores, <b>Doom</b> revolucionou os jogos em 3D.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p07-magadrive-sonic.jpg" alt="Mega Drive com Sonic the Hedgehog">
+                        <p class="legenda">Mega Drive com Sonic the Hedgehog</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p07-gameboy-tetris.jpg" alt="Game Boy rodando Tetris">
+                        <p class="legenda">Game Boy rodando Tetris</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p07-doom.jpg" alt="Doom, da id Software">
+                        <p class="legenda">Doom, da id Software</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== PLAYSTATION ===================== -->
+    <div class="secao" id="playstation">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1994</span> A Sony entra no jogo</h2>
+                <p>
+                    O <b>PlayStation</b> usava <b>CD</b>, mais barato e com mais espaço que os cartuchos, e já nasceu pronto
+                    para o 3D. Com <b>Final Fantasy VII</b>, a Sony passou Nintendo e Sega. A Sega deixou de fazer
+                    consoles depois do Dreamcast, mas no Brasil a <b>Tectoy</b> manteve a marca forte por décadas.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p08-ps1.jpg" alt="PlayStation original com controles">
+                        <p class="legenda">PlayStation original com controles</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p08-finalfantasyVIIps1.jpg" alt="Final Fantasy VII (PlayStation)">
+                        <p class="legenda">Final Fantasy VII (PlayStation)</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ANOS 2000 ===================== -->
+    <div class="secao" id="anos2000">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">Anos 2000</span> PS2, Xbox, Wii e DS</h2>
+                <p>
+                    O <b>PlayStation 2</b> virou o console de mesa mais vendido da história. A <b>Microsoft</b> entrou na
+                    briga com o Xbox e o <b>Halo</b>, e a Nintendo apostou em ideias novas: o <b>Wii</b>, com controle de
+                    movimento, e o <b>Nintendo DS</b>, com duas telas. A internet trouxe <b>World of Warcraft</b> e os
+                    primeiros <b>esports</b>.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p09-PS2-Fat.jpg" alt="PlayStation 2">
+                        <p class="legenda">PlayStation 2</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p09-xbox-and-halo.jpg" alt="Xbox original e Halo: Combat Evolved">
+                        <p class="legenda">Xbox original e Halo: Combat Evolved</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p09-wii-wiisports.jpg" alt="Wii com Wii Sports">
+                        <p class="legenda">Wii com Wii Sports</p>
+                    </div>
+                </div>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p10-nintendo-ds.jpg" alt="Nintendo DS, o portátil mais vendido da história">
+                        <p class="legenda">Nintendo DS, o portátil mais vendido da história</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p10-worldofwarcraft.jpg" alt="World of Warcraft">
+                        <p class="legenda">World of Warcraft</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p10-starcraft-championship.jpg" alt="Final do campeonato mundial de StarCraft II">
+                        <p class="legenda">Final do campeonato mundial de StarCraft II</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CELULARES E INDIES ===================== -->
+    <div class="secao" id="celulares">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">2007</span> O celular vira videogame</h2>
+                <p>
+                    Com o <b>iPhone</b> e as lojas de aplicativos, o celular virou a maior plataforma de jogos do mundo.
+                    Surgiram <b>Angry Birds</b>, <b>Candy Crush</b> e os jogos <b>gratuitos</b> com compras dentro do jogo.
+                    Ao mesmo tempo, os <b>jogos independentes</b> cresceram no Steam, com destaque para <b>Minecraft</b>.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p11-angry-birds.jpg" alt="Angry Birds">
+                        <p class="legenda">Angry Birds</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p11-screenshot-minecraft.jpg" alt="Minecraft">
+                        <p class="legenda">Minecraft</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ANOS 2010 ===================== -->
+    <div class="secao" id="anos2010">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">Anos 2010</span> Tudo digital</h2>
+                <p>
+                    <b>PS4</b> e <b>Xbox One</b> fortaleceram os jogos digitais e os passes de temporada. A Nintendo voltou
+                    ao topo com o <b>Switch</b>, que funciona na TV e como portátil, e o <b>Fortnite</b> juntou jogadores
+                    de todas as plataformas na mesma partida.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p12-nintendoswitch.jpg" alt="Nintendo Switch com Joy-Con e base">
+                        <p class="legenda">Nintendo Switch com Joy-Con e base</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p12-playstation-4-e-xbox-one.jpg" alt="Xbox One e PlayStation 4">
+                        <p class="legenda">Xbox One e PlayStation 4</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p12-fortnite.jpg" alt="Fortnite">
+                        <p class="legenda">Fortnite</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ANOS 2020 ===================== -->
+    <div class="secao" id="anos2020">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">Anos 2020</span> A geração atual</h2>
+                <p>
+                    <b>PS5</b> e <b>Xbox Series</b> trouxeram <b>ray tracing</b> e SSDs que quase acabaram com as telas de
+                    carregamento. A pandemia fez o setor crescer, a Microsoft comprou a Activision Blizzard e a Bethesda,
+                    e a partir de 2023 vieram demissões em massa. Agora é a vez do <b>Nintendo Switch 2</b>.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p13-ps5.jpg" alt="PlayStation 5">
+                        <p class="legenda">PlayStation 5</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p13-xbox-series-x-s.jpg" alt="Xbox Series S e Series X">
+                        <p class="legenda">Xbox Series S e Series X</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p13-ray-tracing-exemplo.jpg" alt="Ray tracing desligado e ligado">
+                        <p class="legenda">Ray tracing desligado e ligado</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p13-Nintendoswitch2.jpg" alt="Nintendo Switch 2">
+                        <p class="legenda">Nintendo Switch 2</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         A GUERRA DOS CONSOLES
+         ========================================================= -->
+    <div class="secao" id="guerra">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">A Guerra dos Consoles</h2>
+                <p>
+                    É quando as empresas disputam o mesmo público com <b>tecnologia</b>, <b>jogos exclusivos</b> e
+                    <b>propagandas provocando o rival</b>. O termo ficou famoso com Sega contra Nintendo, mas a briga
+                    se repete a cada nova geração.
+                </p>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/p14-segavsnintendo.jpg" alt="Sega contra Nintendo">
+                        <p class="legenda">Sega contra Nintendo</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/p14-snes-vs-segagenesis.jpg" alt="Super Nintendo contra Sega Genesis">
+                        <p class="legenda">Super Nintendo contra Sega Genesis</p>
+                    </div>
+                </div>
+
+                <!-- ROUND 1 -->
+                <div class="round">
+                    <h3><span class="selo selo-azul">Round 1</span> Nintendo sozinha no topo</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                No fim dos anos 80, a Nintendo prendia as melhores empresas com contratos de exclusividade.
+                                O <b>Master System</b> da Sega não conseguiu competir, e a NEC lançou o
+                                <b>TurboGrafx-16</b>, que começou a moda de vender console pela quantidade de <b>bits</b>.
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <img class="foto" src="images/p15-cengine.jpg" alt="TurboGrafx-16 (PC Engine), da NEC">
+                            <p class="legenda">TurboGrafx-16 (PC Engine), da NEC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROUND 2 -->
+                <div class="round">
+                    <h3><span class="selo selo-azul">Round 2</span> Sega x Nintendo</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                O <b>Genesis</b> (Mega Drive) começou fraco: em 1990 a Nintendo tinha <b>90% do mercado</b>.
+                                Em 1991, a Sega baixou o preço, colocou o <b>Sonic</b> junto com o console e fez propagandas
+                                ousadas com o famoso grito <b>"SEGA!"</b>. Em 1993 já tinha <b>55% do mercado</b> americano.
+                            </p>
+                            <p>
+                                O <b>Mortal Kombat</b> foi o estopim: a versão da Nintendo era censurada e a da Sega vendeu
+                                até 5 vezes mais. A polêmica foi parar no Congresso americano e assim nasceu a
+                                <b>classificação etária</b> dos jogos (ESRB).
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <img class="foto" src="images/p16-Altered-Beast.jpg" alt="Altered Beast, jogo que acompanhou o lançamento do Genesis">
+                            <p class="legenda">Altered Beast, jogo que acompanhou o lançamento do Genesis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROUND 3 -->
+                <div class="round">
+                    <h3><span class="selo selo-azul">Round 3</span> Chega a Sony</h3>
+                    <p>
+                        Na primeira E3, em 1995, a Sony anunciou o PlayStation por <b>US$ 299</b>, contra <b>US$ 399</b> do
+                        Sega Saturn. Em dois dias vendeu mais que o rival em cinco meses. A Sega saiu dos consoles em 2002 e
+                        hoje até faz jogos junto com a Nintendo, como <b>Mario &amp; Sonic nos Jogos Olímpicos</b>.
+                    </p>
+                </div>
+
+                <!-- ROUND 4 -->
+                <div class="round">
+                    <h3><span class="selo selo-azul">Round 4</span> Sony x Microsoft</h3>
+                    <p>
+                        O <b>Xbox 360</b> saiu na frente do PS3, mas sofreu com o defeito do <b>"Red Ring of Death"</b>.
+                        Na geração seguinte, o <b>Xbox One</b> foi criticado por exigir internet sempre ligada, e o
+                        <b>PS4</b> vendeu o dobro. Enquanto isso, a Nintendo seguiu seu próprio caminho com Wii, DS e Switch,
+                        apostando em ideias diferentes em vez de potência.
+                    </p>
+                </div>
+
+                <!-- ROUND BÔNUS -->
+                <div class="round">
+                    <h3><span class="selo selo-azul">Bônus</span> A guerra dos portáteis</h3>
+                    <p>
+                        Game Gear (Sega) e Lynx (Atari) tinham tela colorida, mas o <b>Game Boy</b> venceu: era mais barato,
+                        a bateria durava mais e ele tinha o <b>Tetris</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== PLACAR DE VENDAS (montado pelo js/historia.js) ===================== -->
+    <div class="secao">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Placar final: quem vendeu mais?</h2>
+                <p class="subtitulo">Unidades vendidas de cada console, em milhões.</p>
+
+                <div id="placar"></div>
+
+                <div class="curiosidade" id="resumo_placar"></div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
             </div>
         </div>
     </div>

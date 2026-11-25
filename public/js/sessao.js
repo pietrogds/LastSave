@@ -1,10 +1,10 @@
 // sessão
 // Usada nas páginas que precisam de login (História, Jogos, Minha História e Quiz)
 function validarSessao() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
+    let email = sessionStorage.EMAIL_USUARIO;
+    let nome = sessionStorage.NOME_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
+    let b_usuario = document.getElementById("b_usuario");
 
     if (email != null && nome != null) {
         b_usuario.innerHTML = nome;
@@ -20,7 +20,7 @@ function limparSessao() {
 
 // Usada na página inicial: se o usuário já fez login, libera as abas do menu
 function liberarMenu() {
-    var nome = sessionStorage.NOME_USUARIO;
+    let nome = sessionStorage.NOME_USUARIO;
 
     if (nome != null) {
         menu.innerHTML = `
@@ -35,20 +35,34 @@ function liberarMenu() {
             <span class="ola">Olá, <b>${nome}</b></span>
             <button class="botao botao-azul" onclick="limparSessao()">Sair</button>
         `;
+
+        // caixa "LEVEL UP!": o usuário logado já está no level máximo
+        caixa_level.innerHTML = `
+            <h2 class="texto-pixel">LEVEL UP!</h2>
+            <p>
+                Parabéns, <b>${nome}</b>! Você chegou ao <b>level máximo</b>:
+                todas as abas estão desbloqueadas.
+            </p>
+            <div class="barra-xp">
+                <div class="xp" style="width: 100%"></div>
+            </div>
+            <p class="texto-xp">5 de 5 abas desbloqueadas</p>
+            <a class="botao botao-azul botao-grande" href="historia.html">Começar pela História</a>
+        `;
     }
 }
 
 // carregamento (loading)
 function aguardar() {
-    var divAguardar = document.getElementById("div_aguardar");
+    let divAguardar = document.getElementById("div_aguardar");
     divAguardar.style.display = "flex";
 }
 
 function finalizarAguardar(texto) {
-    var divAguardar = document.getElementById("div_aguardar");
+    let divAguardar = document.getElementById("div_aguardar");
     divAguardar.style.display = "none";
 
-    var divErrosLogin = document.getElementById("div_erros_login");
+    let divErrosLogin = document.getElementById("div_erros_login");
     if (texto) {
         divErrosLogin.style.display = "flex";
         divErrosLogin.innerHTML = texto;

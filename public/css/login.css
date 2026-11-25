@@ -3,27 +3,21 @@
    (mesma estrutura da API web-data-viz, só com as cores do LastSave)
    ========================================================= */
 
-/* altura da tela menos o header e o footer, para o footer ficar lá embaixo */
 .login {
-    min-height: calc(100vh - 113px);
-    padding: 50px 0;
+    padding: 50px 0 120px;
 }
 
 .login .container {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .login .card {
     width: 40%;
-    background: rgba(255, 255, 255, 0.85);
-    border: 2px solid white;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #8fd3ff;
     padding: 25px 0;
+    text-align: center;
 }
 
 .login .card h2 {
@@ -33,38 +27,34 @@
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
     width: 80%;
+    margin: auto;
+    text-align: left;
 }
 
 .campo {
-    display: flex;
-    flex-direction: column;
     padding: 5px 0;
 }
 
 .formulario span {
+    display: block;
     font-size: 13px;
     font-weight: bold;
     margin-bottom: 3px;
 }
 
 .formulario input {
-    border: 2px solid #8fd3ff;
-    border-radius: 3px;
+    width: 100%;
+    border: 1px solid #1f7de8;
     padding: 8px;
-    text-align: center;
     font-size: 14px;
 }
 
 .formulario .botao {
-    align-self: center;
-    margin-top: 15px;
+    display: block;
+    margin: 15px auto 0;
     padding: 8px 30px;
-    border-radius: 4px;
     font-size: 15px;
-    cursor: pointer;
 }
 
 .link-troca {
@@ -72,15 +62,10 @@
     font-size: 13px;
 }
 
-.link-troca a {
-    color: #1f7de8;
-    font-weight: bold;
-}
-
 /* gif de carregando */
 .loading-div {
-    width: 50px;
     display: none;
+    justify-content: center;
     margin-top: 10px;
 }
 
@@ -91,16 +76,12 @@
 
 #div_erros_login {
     display: none;
-    color: #c0392b;
+    justify-content: center;
+    color: red;
     margin-top: 10px;
 }
 
 /* caixinha de aviso (erro ou sucesso) */
-.alerta_erro {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .card_erro {
     display: none;
     background-color: white;
@@ -108,12 +89,7 @@
     position: fixed;
     top: 80px;
     right: 5%;
-    border-radius: 3px;
-    border: 3px solid #ff9a1f;
+    border: 2px solid #ff9a1f;
     padding: 10px;
-}
-
-.card_erro #mensagem_erro {
     font-weight: bold;
-    font-size: 15px;
 }

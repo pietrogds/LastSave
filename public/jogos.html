@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LastSave | Jogos</title>
     <script src="js/sessao.js"></script>
+    <script src="js/jogos.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/lastsave.ico">
 </head>
 
 <!-- validarSessao(): se o usuário não fez login, volta para a tela de login -->
-<body onload="validarSessao()">
+<!-- calcularIdades(): calcula há quantos anos cada jogo foi lançado (js/jogos.js) -->
+<body onload="validarSessao(); calcularIdades()">
 
     <!-- ===================== HEADER ===================== -->
-    <div class="header">
+    <div class="header" id="topo">
         <div class="container">
             <a href="index.html">
                 <img class="logo" src="images/lastsave-logo-v4-transparente.svg" alt="LastSave">
@@ -35,12 +37,234 @@
         </div>
     </div>
 
-    <!-- ===================== CONTEÚDO ===================== -->
+    <!-- ===================== INTRODUÇÃO ===================== -->
     <div class="banner">
         <div class="container">
-            <div class="painel painel-convite">
-                <h2>Jogos que moldaram a indústria</h2>
-                <p>Esta aba está em construção e será montada na próxima etapa.</p>
+            <div class="painel">
+                <h1 class="titulo-pagina">Jogos que moldaram a indústria</h1>
+                <p>
+                    Alguns jogos não foram só sucesso: eles criaram regras que quase todo jogo usa até hoje.
+                    Conheça os que o LastSave considera os mais importantes.
+                </p>
+
+                <p class="indice">
+                    <b>Ir para:</b>
+                    <a href="#zelda">Ocarina of Time</a> |
+                    <a href="#metroidvania">Metroid e Castlevania</a> |
+                    <a href="#minecraft">Minecraft</a> |
+                    <a href="#pokemon">Pokémon</a> |
+                    <a href="#grafico">Gráfico não é tudo</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         COMO COLOCAR AS IMAGENS:
+         troque  <div class="img-vazia">...</div>
+         por     <img class="foto" src="images/NOME-DO-ARQUIVO.jpg" alt="...">
+         ========================================================= -->
+
+    <!-- ===================== ZELDA: OCARINA OF TIME ===================== -->
+    <div class="secao" id="zelda">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1998</span> The Legend of Zelda: Ocarina of Time</h2>
+
+                <div class="sobre">
+                    <div class="sobre-texto">
+                        <p>
+                            Lançado para o <b>Nintendo 64</b>, praticamente definiu como seria uma <b>aventura em 3D</b>.
+                            Tem um mundo grande para explorar, masmorras cheias de quebra-cabeças e uma história marcante.
+                        </p>
+
+                        <p><b>O que ele trouxe de novo:</b></p>
+                        <ul class="lista">
+                            <li><b>Z-targeting:</b> a câmera trava no inimigo e você luta sem se perder.</li>
+                            <li><b>Botão de ação</b> que muda de função conforme a situação.</li>
+                            <li>Nota <b>99 no Metacritic</b>, a mais alta da história do site.</li>
+                        </ul>
+
+                        <p class="ficha">Lançado há <b id="idade_0"></b> anos.</p>
+                    </div>
+
+                    <div class="figura-lado">
+                        <img class="foto" src="images/jogo-ocarina-of-time.jpg" alt="The Legend of Zelda: Ocarina of Time (Nintendo 64)">
+                        <p class="legenda">The Legend of Zelda: Ocarina of Time (Nintendo 64)</p>
+                    </div>
+                </div>
+
+                <div class="curiosidade">
+                    <b>Você sabia?</b> Até o criador de Dark Souls, Hidetaka Miyazaki, chama Zelda de
+                    "livro didático" dos jogos de ação em 3D.
+                </div>
+
+                <a class="voltar" href="#topo"> voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== METROID E CASTLEVANIA ===================== -->
+    <div class="secao" id="metroidvania">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1986</span> Metroid e Castlevania</h2>
+                <p>
+                    Os dois juntos criaram um gênero inteiro: o <b>Metroidvania</b>, que segue vivo em sucessos como
+                    <b>Hollow Knight</b> e <b>Ori</b>.
+                </p>
+
+                <div class="comparacao">
+                    <div class="lado">
+                        <h3>Metroid</h3>
+                        <p>
+                            Trocou as fases em linha reta por um <b>grande mapa interligado</b>. Você ganha habilidades
+                            novas e volta a lugares antigos para abrir caminhos. No final, revela que <b>Samus Aran</b>
+                            era uma mulher, algo raro na época.
+                        </p>
+                        <p class="ficha">Lançado há <b id="idade_1"></b> anos.</p>
+                    </div>
+
+                    <div class="lado">
+                        <h3>Castlevania</h3>
+                        <p>
+                            Começou como um jogo de ação com clima de <b>terror gótico</b>. Em 1997,
+                            <b>Symphony of the Night</b> juntou esse clima com a exploração de Metroid e coisas de RPG,
+                            como níveis e equipamentos.
+                        </p>
+                        <p class="ficha">Lançado há <b id="idade_2"></b> anos.</p>
+                    </div>
+                </div>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <img class="foto" src="images/jogo-metroid.jpg" alt="Metroid (NES)">
+                        <p class="legenda">Metroid (NES)</p>
+                    </div>
+                    <div class="figura">
+                        <img class="foto" src="images/jogo-castlevania-sotn.jpg" alt="Castlevania: Symphony of the Night (PlayStation)">
+                        <p class="legenda">Castlevania: Symphony of the Night (PlayStation)</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo"> voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MINECRAFT ===================== -->
+    <div class="secao" id="minecraft">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">2009</span> Minecraft</h2>
+
+                <div class="sobre">
+                    <div class="sobre-texto">
+                        <p>
+                            Criado por <b>Markus "Notch" Persson</b>, da Mojang, redefiniu o estilo <b>sandbox</b>.
+                            O mundo é praticamente infinito e você pode quebrar e construir qualquer coisa,
+                            <b>bloco por bloco</b>: de uma casinha simples a cidades inteiras.
+                        </p>
+
+                        <p><b>O que ele trouxe de novo:</b></p>
+                        <ul class="lista">
+                            <li>Mundo gerado automaticamente, diferente para cada jogador.</li>
+                            <li>Exploração, sobrevivência e construção no mesmo jogo.</li>
+                            <li>Mais de <b>350 milhões de cópias</b>: o jogo mais vendido da história.</li>
+                        </ul>
+
+                        <p class="ficha">Lançado há <b id="idade_3"></b> anos.</p>
+                    </div>
+
+                    <div class="figura-lado">
+                        <img class="foto" src="images/jogo-minecraft.jpg" alt="Minecraft">
+                        <p class="legenda">Minecraft</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo"> voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== POKÉMON ===================== -->
+    <div class="secao" id="pokemon">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao"><span class="selo">1996</span> Pokémon</h2>
+
+                <div class="sobre">
+                    <div class="sobre-texto">
+                        <p>
+                            <b>Pokémon Red e Green</b> chegaram ao Game Boy com uma ideia simples e viciante:
+                            <b>capturar, colecionar e treinar</b> monstrinhos. O criador, <b>Satoshi Tajiri</b>,
+                            se inspirou na infância, quando passava os dias caçando insetos.
+                        </p>
+
+                        <p><b>O que ele trouxe de novo:</b></p>
+                        <ul class="lista">
+                            <li>Troca de Pokémon entre amigos pelo <b>cabo do Game Boy</b>.</li>
+                            <li>Cada versão tinha criaturas exclusivas, então era preciso jogar junto.</li>
+                            <li>Virou a franquia <b>mais lucrativa do mundo</b>: mais de US$ 150 bilhões.</li>
+                        </ul>
+
+                        <p class="ficha">Lançado há <b id="idade_4"></b> anos.</p>
+                    </div>
+
+                    <div class="figura-lado">
+                        <img class="foto" src="images/jogo-pokemon-red-green.jpg" alt="Pokémon Red e Green (Game Boy)">
+                        <p class="legenda">Pokémon Red e Green (Game Boy)</p>
+                    </div>
+                </div>
+
+                <div class="curiosidade">
+                    <b>Você sabia?</b> Em 2026 a série completou 30 anos, e a 10ª geração,
+                    <b>Pokémon Winds and Waves</b>, está prevista para 2027.
+                </div>
+
+                <a class="voltar" href="#topo"> voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== GRÁFICO NÃO É TUDO ===================== -->
+    <div class="secao" id="grafico">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Gráfico não é tudo</h2>
+                <p>
+                    Hoje muita gente acha que jogo bom é jogo com <b>gráfico ultrarrealista</b>. Mas nenhum dos jogos
+                    desta página ficou famoso pelo visual: eles marcaram pela <b>criatividade</b>, pelo
+                    <b>game design</b> e pela <b>diversão</b>. Dá para ver isso no caminho de duas empresas:
+                </p>
+
+                <div class="comparacao">
+                    <div class="lado lado-ruim">
+                        <h3>Konami e Castlevania</h3>
+                        <p>
+                            Deixou o Symphony of the Night de lado por ser 2D e apostou num jogo 3D, que fracassou.
+                            Depois passou a pensar só no lucro e deixou a série <b>mais de 10 anos parada</b>.
+                            Hoje vive principalmente de máquinas de caça-níquel no Japão.
+                        </p>
+                    </div>
+
+                    <div class="lado lado-bom">
+                        <h3>Nintendo e Metroid</h3>
+                        <p>
+                            Criou o <b>Metroid Prime</b>, em 3D e primeira pessoa, mas <b>não abandonou</b> os jogos 2D,
+                            que continuam saindo até hoje. Ouviu os fãs, manteve a essência e a série está
+                            viva até agora.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="curiosidade">
+                    <b>Exemplo recente:</b> em novembro de 2026 a Nintendo lançou o remake de <b>Ocarina of Time</b>
+                    para o Switch 2. Os gráficos melhoraram, mas sem exagero, para que uma geração nova conheça
+                    um clássico sem achar que ele é "velho demais".
+                </div>
+
+                <a class="voltar" href="#topo"> voltar ao topo</a>
             </div>
         </div>
     </div>

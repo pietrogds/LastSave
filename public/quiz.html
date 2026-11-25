@@ -35,12 +35,59 @@
         </div>
     </div>
 
-    <!-- ===================== CONTEÚDO ===================== -->
+    <!-- ===================== QUIZ ===================== -->
     <div class="banner">
         <div class="container">
             <div class="painel painel-convite">
-                <h2>Quiz e Dashboard</h2>
-                <p>Esta aba está em construção e será montada na próxima etapa.</p>
+                <h1 class="titulo-pagina">Quiz LastSave</h1>
+                <p>
+                    Será que você prestou atenção na história dos games?
+                    Responda as perguntas e veja seu resultado na dashboard logo abaixo.
+                </p>
+
+                <!-- por enquanto o botão só mostra um aviso (o quiz ainda vai ser feito) -->
+                <button class="botao botao-laranja botao-grande" onclick="iniciarQuiz()">Iniciar Quiz</button>
+
+                <div id="area_quiz" class="area-quiz"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== DASHBOARD ===================== -->
+    <!-- os números e os gráficos vão vir da tabela resultado_quiz do banco -->
+    <div class="secao">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Minha Dashboard</h2>
+                <p class="subtitulo">Seus resultados no quiz aparecem aqui.</p>
+
+                <div class="indicadores">
+                    <div class="indicador">
+                        <p>Tentativas</p>
+                        <span id="kpi_tentativas">--</span>
+                    </div>
+                    <div class="indicador">
+                        <p>Melhor pontuação</p>
+                        <span id="kpi_melhor">--</span>
+                    </div>
+                    <div class="indicador">
+                        <p>Média de acertos</p>
+                        <span id="kpi_media">--</span>
+                    </div>
+                    <div class="indicador">
+                        <p>Última tentativa</p>
+                        <span id="kpi_ultima">--</span>
+                    </div>
+                </div>
+
+                <div class="galeria">
+                    <div class="figura">
+                        <div class="img-vazia grafico">Gráfico: acertos em cada tentativa</div>
+                    </div>
+                    <div class="figura">
+                        <div class="img-vazia grafico">Gráfico: você x média dos jogadores</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,3 +102,12 @@
 </body>
 
 </html>
+
+<script>
+
+    // Por enquanto só mostra um aviso. Depois aqui vai começar o quiz de verdade.
+    function iniciarQuiz() {
+        area_quiz.innerHTML = "O quiz está em construção. Volte em breve!";
+    }
+
+</script>

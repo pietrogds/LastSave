@@ -14,7 +14,7 @@
 <body onload="validarSessao()">
 
     <!-- ===================== HEADER ===================== -->
-    <div class="header">
+    <div class="header" id="topo">
         <div class="container">
             <a href="index.html">
                 <img class="logo" src="images/lastsave-logo-v4-transparente.svg" alt="LastSave">
@@ -35,12 +35,215 @@
         </div>
     </div>
 
-    <!-- ===================== CONTEÚDO ===================== -->
+    <!-- ===================== INTRODUÇÃO ===================== -->
     <div class="banner">
         <div class="container">
-            <div class="painel painel-convite">
-                <h2>Minha História</h2>
-                <p>Esta aba está em construção e será montada na próxima etapa.</p>
+            <div class="painel">
+                <h1 class="titulo-pagina">Minha História com os Videogames</h1>
+                <p>
+                    Os videogames fazem parte da minha vida desde muito pequeno. Aqui estão os
+                    <b>"saves"</b> mais importantes dessa história.
+                </p>
+
+                <p class="indice">
+                    <b>Ir para:</b>
+                    <a href="#minha-historia">Minha história</a> |
+                    <a href="#jogos-marcantes">Jogos que me marcaram</a> |
+                    <a href="#por-que">Por que o LastSave existe</a> |
+                    <a href="#agradecimentos">Agradecimentos</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         COMO COLOCAR AS IMAGENS:
+         troque  <div class="img-vazia">...</div>
+         por     <img class="foto" src="images/NOME-DO-ARQUIVO.jpg" alt="...">
+         ========================================================= -->
+
+    <!-- ===================== MINHA HISTÓRIA (SAVES) ===================== -->
+    <div class="secao" id="minha-historia">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Meus saves</h2>
+
+                <!-- SAVE 01 -->
+                <div class="save">
+                    <h3><span class="selo">SAVE 01</span> O DS do meu irmão</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                Com uns <b>4 anos</b>, eu implorava para jogar no <b>Nintendo DS </b> do meu irmão.
+                                Quando ele deixava, a diversão era garantida: <b>Mario Kart DS</b> e os jogos de
+                                <b>Pokémon</b>. Só que dividir um portátil entre duas pessoas não era nada fácil...
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <div class="img-vazia">minha-historia-ds-irmao.jpg</div>
+                            <p class="legenda">O Nintendo DS do meu irmão</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAVE 02 -->
+                <div class="save">
+                    <h3><span class="selo">SAVE 02</span> Natal de 2012: meu próprio DS</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                Meus pais perceberam a situação e me deram <b>meu próprio Nintendo DS</b>.
+                                A partir daí foi só alegria: horas de Mario Kart DS com meu irmão e meu primeiro Pokémon,
+                                o <b>Pokémon Diamond</b>.
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <div class="img-vazia">minha-historia-pokemon-diamond.jpg</div>
+                            <p class="legenda">Pokémon Diamond, meu primeiro Pokémon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAVE 03 -->
+                <div class="save">
+                    <h3><span class="selo">SAVE 03</span> PS2, Xbox 360 e Minecraft</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                Meu irmão também tinha um <b>PlayStation 2</b> e um <b>Xbox 360</b>. Jogamos muito
+                                <b>Minecraft</b> e os jogos de <b>Digimon</b>. Quando eu jogava, me sentia leve:
+                                o videogame virou minha <b>válvula de escape</b>. Hoje, além disso, vejo os bons jogos
+                                como uma <b>forma de arte</b>.
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <div class="img-vazia">minha-historia-xbox360.jpg</div>
+                            <p class="legenda">Xbox 360 e PlayStation 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAVE 04 -->
+                <div class="save">
+                    <h3><span class="selo">SAVE 04</span> Meu parceiro de viagem</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                Eu levava o DS para todo lugar. Comecei a pesquisar e assistir vídeos de games no
+                                <b>YouTube</b> sem parar, e assim conheci <b>The Legend of Zelda</b>: meu primeiro foi o
+                                <b>Phantom Hourglass</b>, no próprio DS.
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <div class="img-vazia">minha-historia-phantom-hourglass.jpg</div>
+                            <p class="legenda">Zelda: Phantom Hourglass, meu primeiro Zelda</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAVE 05 -->
+                <div class="save">
+                    <h3><span class="selo">SAVE 05</span> 2018: o Yuri</h3>
+                    <div class="sobre">
+                        <div class="sobre-texto">
+                            <p>
+                                Conheci o <b>Yuri</b>, meu grande amigo até hoje. Ele tinha muitos videogames e eu sempre
+                                ia na casa dele para jogar. Esses momentos também fazem parte da minha história com os games.
+                            </p>
+                        </div>
+                        <div class="figura-lado">
+                            <div class="img-vazia">minha-historia-yuri.jpg</div>
+                            <p class="legenda">Jogatinas com o Yuri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         JOGOS QUE ME MARCARAM
+         (espaço reservado: os jogos ainda vão ser escolhidos)
+         Para preencher, troque o "Jogo 1", o texto e a imagem de cada card.
+         ========================================================= -->
+    <div class="secao" id="jogos-marcantes">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Jogos que me marcaram</h2>
+                <p class="subtitulo">Em breve: os jogos que fizeram parte da minha vida.</p>
+
+                <div class="cards">
+                    <div class="card">
+                        <div class="img-vazia">Imagem do jogo</div>
+                        <h3>Jogo 1</h3>
+                        <p>Em breve.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-vazia">Imagem do jogo</div>
+                        <h3>Jogo 2</h3>
+                        <p>Em breve.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-vazia">Imagem do jogo</div>
+                        <h3>Jogo 3</h3>
+                        <p>Em breve.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-vazia">Imagem do jogo</div>
+                        <h3>Jogo 4</h3>
+                        <p>Em breve.</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== POR QUE O LASTSAVE EXISTE ===================== -->
+    <div class="secao" id="por-que">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Por que o LastSave existe</h2>
+                <p>
+                    Os videogames me acompanham desde pequeno. Mas, de uns tempos pra cá, percebi que a indústria vem
+                    se perdendo aos poucos pela <b>busca constante por lucro</b>. Daí veio a ideia do LastSave:
+                    reunir a história dos games, mostrar o quanto eles são importantes e <b>preservar</b>
+                    tudo de bom que eles trouxeram.
+                </p>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== AGRADECIMENTOS ===================== -->
+    <div class="secao" id="agradecimentos">
+        <div class="container">
+            <div class="painel">
+                <h2 class="titulo-secao">Agradecimentos</h2>
+
+                <div class="valores">
+                    <div class="valor">
+                        <h3>Meus pais</h3>
+                        <p>Mesmo com as dificuldades, sempre buscaram realizar as minhas vontades e as do meu irmão.</p>
+                    </div>
+                    <div class="valor">
+                        <h3>Meu irmão</h3>
+                        <p>Foi quem me apresentou ao mundo dos videogames e me ensinou muito sobre ele.</p>
+                    </div>
+                    <div class="valor">
+                        <h3>Yuri</h3>
+                        <p>Presente em tantas jogatinas e que até hoje divide comigo essa paixão.</p>
+                    </div>
+                </div>
+
+                <a class="voltar" href="#topo">&#8593; voltar ao topo</a>
             </div>
         </div>
     </div>
