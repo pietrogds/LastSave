@@ -568,3 +568,114 @@ a:hover {
     padding: 15px 0;
     font-size: 13px;
 }
+
+/* =========================================================
+   CELULAR
+   Tudo dentro do @media só vale quando a tela tem até 768px
+   de largura (celular e tablet). No computador nada muda.
+   ========================================================= */
+@media (max-width: 768px) {
+
+    .container {
+        width: 94%;
+    }
+
+    /* ---------- header em duas linhas ---------- */
+    .header .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: auto;
+        padding: 8px 0;
+    }
+
+    .logo {
+        height: 32px;
+    }
+
+    /* order: 3 manda o menu para depois da logo e do "Olá / Sair" (vai para a linha de baixo) */
+    .navbar {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    .navbar a {
+        padding: 5px 7px;
+        font-size: 12px;
+    }
+
+    /* ---------- tudo que ficava lado a lado agora fica um embaixo do outro ---------- */
+    .sobre,
+    .cards,
+    .valores,
+    .galeria,
+    .comparacao,
+    .indicadores,
+    .botoes {
+        flex-direction: column;
+    }
+
+    .painel-banner,
+    .sobre-texto,
+    .img-vazia,
+    .foto,
+    .figura-lado,
+    .card,
+    .valor,
+    .lado,
+    .indicador {
+        width: 100%;
+    }
+
+    /* espaço entre as caixas empilhadas */
+    .card,
+    .valor,
+    .lado,
+    .indicador {
+        margin-bottom: 10px;
+    }
+
+    .figura {
+        margin: 0 0 12px 0;
+    }
+
+    .sobre-texto {
+        margin-bottom: 12px;
+    }
+
+    .botao-grande {
+        margin: 5px 0;
+    }
+
+    /* ---------- tamanhos menores ---------- */
+    .painel {
+        padding: 15px;
+    }
+
+    .titulo-pagina {
+        font-size: 20px;
+    }
+
+    .titulo-secao {
+        font-size: 18px;
+    }
+
+    .banner-logo {
+        width: 90%;
+    }
+
+    .texto-pixel {
+        font-size: 18px;
+    }
+
+    .barra-xp {
+        width: 90%;
+    }
+
+    .nome-console {
+        width: 110px;
+        font-size: 11px;
+    }
+}

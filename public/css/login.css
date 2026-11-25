@@ -93,3 +93,20 @@
     padding: 10px;
     font-weight: bold;
 }
+
+/* =========================================================
+   CELULAR (telas de até 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+    .login {
+        padding: 25px 0 60px;
+    }
+
+    .login .card {
+        width: 100%;
+    }
+
+    .card_erro {
+        width: 90%;
+    }
+}
