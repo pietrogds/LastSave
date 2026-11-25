@@ -1,5 +1,3 @@
-// sessão
-// Usada nas páginas que precisam de login (História, Jogos, Minha História e Quiz)
 function validarSessao() {
     let email = sessionStorage.EMAIL_USUARIO;
     let nome = sessionStorage.NOME_USUARIO;
@@ -18,7 +16,6 @@ function limparSessao() {
     window.location = "index.html";
 }
 
-// Usada na página inicial: se o usuário já fez login, libera as abas do menu
 function liberarMenu() {
     let nome = sessionStorage.NOME_USUARIO;
 
@@ -36,7 +33,6 @@ function liberarMenu() {
             <button class="botao botao-azul" onclick="limparSessao()">Sair</button>
         `;
 
-        // caixa "LEVEL UP!": o usuário logado já está no level máximo
         caixa_level.innerHTML = `
             <h2 class="texto-pixel">LEVEL UP!</h2>
             <p>
@@ -52,7 +48,6 @@ function liberarMenu() {
     }
 }
 
-// carregamento (loading)
 function aguardar() {
     let divAguardar = document.getElementById("div_aguardar");
     divAguardar.style.display = "flex";

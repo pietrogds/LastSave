@@ -2,8 +2,6 @@
 let ambiente_processo = 'desenvolvimento';
 
 let caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
-// Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
-// A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
 
 require("dotenv").config({ path: caminho_env });
 
@@ -40,6 +38,3 @@ app.listen(PORTA_APP, function () {
     Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:.
 `);
 });
-   // \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
-   // \tSe .:producao:. você está se conectando ao banco remoto. \n\n
-   // \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n

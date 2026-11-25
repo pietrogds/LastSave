@@ -1,6 +1,5 @@
 let mysql = require("mysql2");
 
-// CONEXÃO DO BANCO MYSQL SERVER
 let mySqlConfig = {
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,

@@ -10,10 +10,8 @@
     <link rel="icon" href="images/lastsave.ico">
 </head>
 
-<!-- validarSessao(): se o usuário não fez login, volta para a tela de login -->
 <body onload="validarSessao()">
 
-    <!-- ===================== HEADER ===================== -->
     <div class="header">
         <div class="container">
             <a href="index.html">
@@ -35,7 +33,6 @@
         </div>
     </div>
 
-    <!-- ===================== QUIZ ===================== -->
     <div class="banner">
         <div class="container">
             <div class="painel painel-convite">
@@ -45,7 +42,6 @@
                     Responda as perguntas e veja seu resultado na dashboard logo abaixo.
                 </p>
 
-                <!-- por enquanto o botão só mostra um aviso (o quiz ainda vai ser feito) -->
                 <button class="botao botao-laranja botao-grande" onclick="iniciarQuiz()">Iniciar Quiz</button>
 
                 <div id="area_quiz" class="area-quiz"></div>
@@ -53,8 +49,6 @@
         </div>
     </div>
 
-    <!-- ===================== DASHBOARD ===================== -->
-    <!-- os números e os gráficos vão vir da tabela resultado_quiz do banco -->
     <div class="secao">
         <div class="container">
             <div class="painel">
@@ -92,7 +86,6 @@
         </div>
     </div>
 
-    <!-- ===================== FOOTER ===================== -->
     <div class="footer">
         <div class="container">
             <p>LastSave &copy; 2026 &bull; Projeto Individual SPTech</p>
@@ -105,7 +98,6 @@
 
 <script>
 
-    // Por enquanto só mostra um aviso. Depois aqui vai começar o quiz de verdade.
     function iniciarQuiz() {
         area_quiz.innerHTML = "O quiz está em construção. Volte em breve!";
     }
