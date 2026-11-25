@@ -23,6 +23,8 @@ body {
     background-image: url("../images/fundo-lastsave.jpg");
     background-size: cover;
     background-attachment: fixed;
+    /* deixa o lado direito da imagem (onde está o disquete) sempre aparecendo */
+    background-position: right center;
 }
 
 a {
@@ -266,6 +268,13 @@ a:hover {
 /* =========================================================
    HOME
    ========================================================= */
+/* o banner da home ocupa 80% da altura da tela (80vh) menos o header (63px):
+   o disquete do fundo aparece inteiro do lado do painel e o começo da
+   caixa LEVEL UP já aparece embaixo, mostrando que tem mais coisa na página */
+.banner-home {
+    min-height: calc(80vh - 63px);
+}
+
 .painel-banner {
     width: 50%;
     text-align: center;
@@ -301,9 +310,20 @@ a:hover {
 
 .card .img-vazia {
     width: 100%;
-    height: 110px;
-    padding-top: 45px;
+    height: 130px;
+    padding-top: 55px;
     margin-bottom: 8px;
+}
+
+/* imagem do card: aparece inteira, com no máximo 130px de altura */
+.card .foto {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 130px;
+    margin: 0 auto 8px;
+    border: 1px solid #8fd3ff;
 }
 
 .card h3 {
@@ -615,6 +635,11 @@ a:hover {
     .indicadores,
     .botoes {
         flex-direction: column;
+    }
+
+    /* no celular o banner não precisa ocupar a tela toda */
+    .banner-home {
+        min-height: 0;
     }
 
     .painel-banner,
