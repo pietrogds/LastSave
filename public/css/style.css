@@ -560,9 +560,22 @@ a:hover {
     color: #1f7de8;
 }
 
-.figura .grafico {
-    height: 250px;
-    padding-top: 110px;
+.figura-grafico {
+    overflow: hidden;
+}
+
+.titulo-grafico {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #0a3fb8;
+}
+
+.caixa-grafico {
+    position: relative;
+    height: 260px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #8fd3ff;
 }
 
 .footer {

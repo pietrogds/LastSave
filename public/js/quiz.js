@@ -163,7 +163,7 @@ let listaDeQuestoes = [
     },
     {
         categoria: "criador",
-        pergunta: "Além dos jogos de Digimon, qual jogo ele jogava muito com o irmão no PS2 e no Xbox 360?",
+        pergunta: "Além dos jogos de Digimon, qual jogo ele jogava muito com o irmão no Xbox 360?",
         alternativaA: "Minecraft",
         alternativaB: "Fortnite",
         alternativaC: "Halo",
@@ -339,4 +339,34 @@ function finalizarQuiz() {
         "Você acertou <b>" + certas + " de " + quantidadeDeQuestoes + "</b> perguntas (<b>" + porcentagem + "%</b>).";
     detalhe_historia.innerHTML = acertosHistoria + " / " + totalHistoria;
     detalhe_criador.innerHTML = acertosCriador + " / " + totalCriador;
+
+    salvarResultado();
+}
+
+function salvarResultado() {
+    status_salvar.innerHTML = "Salvando seu resultado...";
+
+    fetch("/quiz/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            acertosServer: certas,
+            acertosHistoriaServer: acertosHistoria,
+            acertosCriadorServer: acertosCriador,
+            totalPerguntasServer: quantidadeDeQuestoes,
+            idUsuarioServer: sessionStorage.ID_USUARIO
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            status_salvar.innerHTML = "Resultado salvo! Confira sua dashboard logo abaixo.";
+            carregarDashboard();
+        } else {
+            status_salvar.innerHTML = "Não foi possível salvar seu resultado.";
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        status_salvar.innerHTML = "Não foi possível salvar seu resultado.";
+    });
 }

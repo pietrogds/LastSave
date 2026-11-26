@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LastSave | Quiz</title>
     <script src="js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/quiz.js"></script>
+    <script src="js/dashboard.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/lastsave.ico">
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(); carregarDashboard()">
 
     <div class="header">
         <div class="container">
@@ -90,6 +92,7 @@
                 <div id="resultado_quiz" class="resultado-quiz">
                     <h2 id="titulo_resultado"></h2>
                     <p id="texto_resultado"></p>
+                    <p id="status_salvar" class="aviso-quiz"></p>
 
                     <div class="indicadores">
                         <div class="indicador">
@@ -113,6 +116,7 @@
             <div class="painel">
                 <h2 class="titulo-secao">Minha Dashboard</h2>
                 <p class="subtitulo">Seus resultados no quiz aparecem aqui.</p>
+                <p id="aviso_dashboard" class="aviso-quiz"></p>
 
                 <div class="indicadores">
                     <div class="indicador">
@@ -134,11 +138,17 @@
                 </div>
 
                 <div class="galeria">
-                    <div class="figura">
-                        <div class="img-vazia grafico">Gráfico: acertos em cada tentativa</div>
+                    <div class="figura figura-grafico">
+                        <p class="titulo-grafico">Acertos em cada tentativa</p>
+                        <div class="caixa-grafico">
+                            <canvas id="grafico_linha"></canvas>
+                        </div>
                     </div>
-                    <div class="figura">
-                        <div class="img-vazia grafico">Gráfico: você x média dos jogadores</div>
+                    <div class="figura figura-grafico">
+                        <p class="titulo-grafico">Você x média dos jogadores</p>
+                        <div class="caixa-grafico">
+                            <canvas id="grafico_barra"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>

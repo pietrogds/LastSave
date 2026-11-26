@@ -15,6 +15,7 @@ let app = express();
 
 let indexRouter = require("./src/routes/index");
 let usuarioRouter = require("./src/routes/usuarios");
+let quizRouter = require("./src/routes/quiz");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,6 +25,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
+app.use("/quiz", quizRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
