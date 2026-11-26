@@ -520,7 +520,7 @@ a:hover {
 
 .resultado-quiz {
     display: none;
-    max-width: 500px;
+    max-width: 600px;
     margin: 10px auto 0;
 }
 
@@ -530,7 +530,19 @@ a:hover {
 }
 
 .resultado-quiz .indicador {
-    width: 48%;
+    width: 32%;
+}
+
+.selo-facil {
+    background-color: #2e9e2e;
+}
+
+.selo-media {
+    background-color: #e06a00;
+}
+
+.selo-dificil {
+    background-color: #d23c3c;
 }
 
 .resultado-quiz .botao-grande {

@@ -47,8 +47,9 @@
 
                 <div id="intro_quiz">
                     <p>
-                        São <b>20 perguntas</b>: 14 sobre a história dos games e
-                        6 sobre o criador do LastSave.
+                        A cada tentativa são sorteadas <b>20 perguntas</b>: 14 sobre a história dos games e
+                        6 sobre o criador do LastSave.<br>
+                        Fáceis valem <b>10 pontos</b>, médias <b>20</b> e difíceis <b>30</b>.
                     </p>
                     <button class="botao botao-laranja botao-grande" onclick="iniciarQuiz()">Iniciar Quiz</button>
                 </div>
@@ -56,7 +57,7 @@
                 <div id="jogo_quiz" class="jogo-quiz">
                     <div class="placar-quiz">
                         <span>Questão <b id="span_numero">1</b> de <b id="span_total">20</b></span>
-                        <span>Acertos: <b id="span_certas">0</b> | Erros: <b id="span_erradas">0</b></span>
+                        <span>Acertos: <b id="span_certas">0</b> | Erros: <b id="span_erradas">0</b> | Pontos: <b id="span_pontos">0</b></span>
                     </div>
 
                     <div class="barra-quiz">
@@ -64,6 +65,7 @@
                     </div>
 
                     <span id="selo_categoria" class="selo"></span>
+                    <span id="selo_dificuldade" class="selo"></span>
                     <h2 id="pergunta_quiz" class="pergunta-quiz"></h2>
 
                     <label class="opcao" id="label_a">
@@ -95,6 +97,10 @@
                     <p id="status_salvar" class="aviso-quiz"></p>
 
                     <div class="indicadores">
+                        <div class="indicador">
+                            <p>Pontuação</p>
+                            <span id="detalhe_pontos">--</span>
+                        </div>
                         <div class="indicador">
                             <p>História dos games</p>
                             <span id="detalhe_historia">--</span>
@@ -139,7 +145,7 @@
 
                 <div class="galeria">
                     <div class="figura figura-grafico">
-                        <p class="titulo-grafico">Acertos em cada tentativa</p>
+                        <p class="titulo-grafico">Pontos em cada tentativa</p>
                         <div class="caixa-grafico">
                             <canvas id="grafico_linha"></canvas>
                         </div>

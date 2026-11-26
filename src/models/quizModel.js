@@ -1,9 +1,9 @@
 let database = require("../database/config");
 
-function registrar(acertos, acertosHistoria, acertosCriador, totalPerguntas, idUsuario) {
+function registrar(acertos, acertosHistoria, acertosCriador, pontos, totalPerguntas, idUsuario) {
     let instrucaoSql = `
-        INSERT INTO resultado_quiz (acertos, acertos_historia, acertos_criador, total_perguntas, fk_usuario)
-        VALUES (${acertos}, ${acertosHistoria}, ${acertosCriador}, ${totalPerguntas}, ${idUsuario});
+        INSERT INTO resultado_quiz (acertos, acertos_historia, acertos_criador, pontos, total_perguntas, fk_usuario)
+        VALUES (${acertos}, ${acertosHistoria}, ${acertosCriador}, ${pontos}, ${totalPerguntas}, ${idUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -11,7 +11,7 @@ function registrar(acertos, acertosHistoria, acertosCriador, totalPerguntas, idU
 
 function listarTentativas(idUsuario) {
     let instrucaoSql = `
-        SELECT acertos, acertos_historia, acertos_criador, total_perguntas,
+        SELECT acertos, acertos_historia, acertos_criador, pontos, total_perguntas,
             DATE_FORMAT(dt_resposta, '%d/%m %H:%i') AS data_resposta
         FROM resultado_quiz
         WHERE fk_usuario = ${idUsuario}

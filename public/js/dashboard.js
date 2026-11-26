@@ -36,27 +36,27 @@ function mostrarIndicadores(tentativas) {
     for (let i = 0; i < quantidade; i++) {
         soma = soma + tentativas[i].acertos;
 
-        if (tentativas[i].acertos > melhor) {
-            melhor = tentativas[i].acertos;
+        if (tentativas[i].pontos > melhor) {
+            melhor = tentativas[i].pontos;
         }
     }
 
     let media = soma / quantidade;
-    let ultima = tentativas[quantidade - 1].acertos;
+    let ultima = tentativas[quantidade - 1].pontos;
 
     kpi_tentativas.innerHTML = quantidade;
-    kpi_melhor.innerHTML = melhor + "/" + total;
-    kpi_media.innerHTML = media.toFixed(1).replace(".", ",");
-    kpi_ultima.innerHTML = ultima + "/" + total;
+    kpi_melhor.innerHTML = melhor + " pts";
+    kpi_media.innerHTML = media.toFixed(1).replace(".", ",") + "/" + total;
+    kpi_ultima.innerHTML = ultima + " pts";
 }
 
 function plotarGraficoLinha(tentativas) {
     let rotulos = [];
-    let acertos = [];
+    let pontos = [];
 
     for (let i = 0; i < tentativas.length; i++) {
         rotulos.push("Tentativa " + (i + 1));
-        acertos.push(tentativas[i].acertos);
+        pontos.push(tentativas[i].pontos);
     }
 
     if (graficoLinha != null) {
@@ -69,8 +69,8 @@ function plotarGraficoLinha(tentativas) {
         data: {
             labels: rotulos,
             datasets: [{
-                label: "Acertos",
-                data: acertos,
+                label: "Pontos",
+                data: pontos,
                 backgroundColor: "rgba(255, 154, 31, 0.3)",
                 borderColor: "#ff9a1f",
                 borderWidth: 3,
@@ -81,8 +81,7 @@ function plotarGraficoLinha(tentativas) {
             maintainAspectRatio: false,
             scales: {
                 y: {
-                    min: 0,
-                    max: tentativas[0].total_perguntas
+                    beginAtZero: true
                 }
             }
         }
