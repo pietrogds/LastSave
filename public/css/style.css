@@ -461,10 +461,80 @@ a:hover {
     margin-bottom: 8px;
 }
 
-.area-quiz {
-    margin-top: 15px;
+.jogo-quiz {
+    display: none;
+    max-width: 700px;
+    margin: 10px auto 0;
+    text-align: left;
+}
+
+.placar-quiz {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.barra-quiz {
+    height: 14px;
+    margin: 8px 0 15px;
+    background-color: #e3f2ff;
+    border: 2px solid #0a3fb8;
+}
+
+.pergunta-quiz {
+    margin: 10px 0 15px;
+    color: #0a3fb8;
+    font-size: 18px;
+}
+
+.opcao {
+    display: block;
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    background-image: linear-gradient(white, #e3f2ff);
+    border: 1px solid #8fd3ff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.opcao:hover {
+    border-color: #1f7de8;
+}
+
+.opcao-certa {
+    background-image: linear-gradient(#eaffea, #b8f0b8);
+    border: 1px solid #2e9e2e;
+    font-weight: bold;
+}
+
+.opcao-errada {
+    background-image: linear-gradient(#ffecec, #ffbcbc);
+    border: 1px solid #d23c3c;
+}
+
+.aviso-quiz {
+    min-height: 20px;
     font-weight: bold;
     color: #e06a00;
+}
+
+.resultado-quiz {
+    display: none;
+    max-width: 500px;
+    margin: 10px auto 0;
+}
+
+.resultado-quiz h2 {
+    color: #e06a00;
+    font-size: 22px;
+}
+
+.resultado-quiz .indicador {
+    width: 48%;
+}
+
+.resultado-quiz .botao-grande {
+    margin-top: 15px;
 }
 
 .indicadores {
@@ -555,8 +625,13 @@ a:hover {
     .card,
     .valor,
     .lado,
-    .indicador {
+    .indicador,
+    .resultado-quiz .indicador {
         width: 100%;
+    }
+
+    .placar-quiz {
+        flex-direction: column;
     }
 
     .card,

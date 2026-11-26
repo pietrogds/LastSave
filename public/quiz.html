@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LastSave | Quiz</title>
     <script src="js/sessao.js"></script>
+    <script src="js/quiz.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/lastsave.ico">
 </head>
@@ -42,9 +43,67 @@
                     Responda as perguntas e veja seu resultado na dashboard logo abaixo.
                 </p>
 
-                <button class="botao botao-laranja botao-grande" onclick="iniciarQuiz()">Iniciar Quiz</button>
+                <div id="intro_quiz">
+                    <p>
+                        São <b>20 perguntas</b>: 14 sobre a história dos games e
+                        6 sobre o criador do LastSave.
+                    </p>
+                    <button class="botao botao-laranja botao-grande" onclick="iniciarQuiz()">Iniciar Quiz</button>
+                </div>
 
-                <div id="area_quiz" class="area-quiz"></div>
+                <div id="jogo_quiz" class="jogo-quiz">
+                    <div class="placar-quiz">
+                        <span>Questão <b id="span_numero">1</b> de <b id="span_total">20</b></span>
+                        <span>Acertos: <b id="span_certas">0</b> | Erros: <b id="span_erradas">0</b></span>
+                    </div>
+
+                    <div class="barra-quiz">
+                        <div class="xp" id="barra_progresso"></div>
+                    </div>
+
+                    <span id="selo_categoria" class="selo"></span>
+                    <h2 id="pergunta_quiz" class="pergunta-quiz"></h2>
+
+                    <label class="opcao" id="label_a">
+                        <input type="radio" name="alternativa" id="opcao_a">
+                        <span id="texto_a"></span>
+                    </label>
+                    <label class="opcao" id="label_b">
+                        <input type="radio" name="alternativa" id="opcao_b">
+                        <span id="texto_b"></span>
+                    </label>
+                    <label class="opcao" id="label_c">
+                        <input type="radio" name="alternativa" id="opcao_c">
+                        <span id="texto_c"></span>
+                    </label>
+                    <label class="opcao" id="label_d">
+                        <input type="radio" name="alternativa" id="opcao_d">
+                        <span id="texto_d"></span>
+                    </label>
+
+                    <p id="aviso_quiz" class="aviso-quiz"></p>
+
+                    <button id="btn_responder" class="botao botao-laranja botao-grande" onclick="responder()">Responder</button>
+                    <button id="btn_proxima" class="botao botao-azul botao-grande" onclick="proximaQuestao()">Próxima questão</button>
+                </div>
+
+                <div id="resultado_quiz" class="resultado-quiz">
+                    <h2 id="titulo_resultado"></h2>
+                    <p id="texto_resultado"></p>
+
+                    <div class="indicadores">
+                        <div class="indicador">
+                            <p>História dos games</p>
+                            <span id="detalhe_historia">--</span>
+                        </div>
+                        <div class="indicador">
+                            <p>Sobre o criador</p>
+                            <span id="detalhe_criador">--</span>
+                        </div>
+                    </div>
+
+                    <button class="botao botao-laranja botao-grande" onclick="iniciarQuiz()">Jogar de novo</button>
+                </div>
             </div>
         </div>
     </div>
@@ -96,10 +155,3 @@
 
 </html>
 
-<script>
-
-    function iniciarQuiz() {
-        area_quiz.innerHTML = "O quiz está em construção. Volte em breve!";
-    }
-
-</script>
