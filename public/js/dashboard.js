@@ -4,6 +4,8 @@ let graficoBarra = null;
 function carregarDashboard() {
     let idUsuario = sessionStorage.ID_USUARIO;
 
+    buscarCuriosidades(idUsuario);
+
     fetch("/quiz/tentativas/" + idUsuario)
         .then(function (resposta) {
             if (resposta.ok) {
@@ -24,6 +26,20 @@ function carregarDashboard() {
         .catch(function (erro) {
             console.log(erro);
             aviso_dashboard.innerHTML = "Não foi possível carregar sua dashboard.";
+        });
+}
+
+function buscarCuriosidades(idUsuario) {
+    fetch("/curiosidade/total/" + idUsuario)
+        .then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resultado) {
+                    kpi_curiosidades.innerHTML = resultado.total;
+                });
+            }
+        })
+        .catch(function (erro) {
+            console.log(erro);
         });
 }
 

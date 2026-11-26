@@ -8,6 +8,13 @@ function registrar(req, res) {
     let totalPerguntas = req.body.totalPerguntasServer;
     let idUsuario = req.body.idUsuarioServer;
 
+    let acertosFacil = req.body.acertosFacilServer;
+    let acertosMedia = req.body.acertosMediaServer;
+    let acertosDificil = req.body.acertosDificilServer;
+    let totalFacil = req.body.totalFacilServer;
+    let totalMedia = req.body.totalMediaServer;
+    let totalDificil = req.body.totalDificilServer;
+
     if (acertos == undefined) {
         res.status(400).send("Os acertos estão undefined!");
     } else if (acertosHistoria == undefined) {
@@ -20,12 +27,28 @@ function registrar(req, res) {
         res.status(400).send("O total de perguntas está undefined!");
     } else if (idUsuario == undefined) {
         res.status(400).send("O id do usuário está undefined!");
+    } else if (acertosFacil == undefined || acertosMedia == undefined || acertosDificil == undefined) {
+        res.status(400).send("Os acertos por dificuldade estão undefined!");
+    } else if (totalFacil == undefined || totalMedia == undefined || totalDificil == undefined) {
+        res.status(400).send("O total de questões por dificuldade está undefined!");
     } else {
 
         quizModel.registrar(acertos, acertosHistoria, acertosCriador, pontos, totalPerguntas, idUsuario)
             .then(
                 function (resultado) {
-                    res.json(resultado);
+                    // insertId é o id que o banco gerou para essa tentativa
+                    let idResultado = resultado.insertId;
+
+                    return quizModel.registrarDificuldade("resultado_facil", acertosFacil, totalFacil, acertosFacil * 10, idResultado)
+                        .then(function () {
+                            return quizModel.registrarDificuldade("resultado_media", acertosMedia, totalMedia, acertosMedia * 20, idResultado);
+                        })
+                        .then(function () {
+                            return quizModel.registrarDificuldade("resultado_dificil", acertosDificil, totalDificil, acertosDificil * 30, idResultado);
+                        })
+                        .then(function () {
+                            res.json(resultado);
+                        });
                 }
             ).catch(
                 function (erro) {

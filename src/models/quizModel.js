@@ -9,6 +9,15 @@ function registrar(acertos, acertosHistoria, acertosCriador, pontos, totalPergun
     return database.executar(instrucaoSql);
 }
 
+function registrarDificuldade(tabela, acertos, totalQuestoes, pontos, idResultado) {
+    let instrucaoSql = `
+        INSERT INTO ${tabela} (acertos, total_questoes, pontos, fk_resultado)
+        VALUES (${acertos}, ${totalQuestoes}, ${pontos}, ${idResultado});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function listarTentativas(idUsuario) {
     let instrucaoSql = `
         SELECT acertos, acertos_historia, acertos_criador, pontos, total_perguntas,
@@ -34,6 +43,7 @@ function buscarMediaGeral() {
 
 module.exports = {
     registrar,
+    registrarDificuldade,
     listarTentativas,
     buscarMediaGeral
 };

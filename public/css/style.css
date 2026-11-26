@@ -566,6 +566,10 @@ a:hover {
     font-size: 13px;
 }
 
+.kpis-dash .indicador {
+    width: 19%;
+}
+
 .indicador span {
     font-size: 26px;
     font-weight: bold;
@@ -651,7 +655,8 @@ a:hover {
     .valor,
     .lado,
     .indicador,
-    .resultado-quiz .indicador {
+    .resultado-quiz .indicador,
+    .kpis-dash .indicador {
         width: 100%;
     }
 

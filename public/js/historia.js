@@ -97,4 +97,21 @@ function sortearCuriosidade() {
     ultimaPosicao = posicao;
 
     div_curiosidade.innerHTML = "<b>Você sabia?</b> " + curiosidades[posicao];
+
+    registrarSorteio(posicao);
+}
+
+function registrarSorteio(posicao) {
+    fetch("/curiosidade/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            numeroCuriosidadeServer: posicao + 1,
+            idUsuarioServer: sessionStorage.ID_USUARIO
+        })
+    }).catch(function (erro) {
+        console.log(erro);
+    });
 }

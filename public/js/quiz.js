@@ -486,6 +486,13 @@ let acertosCriador = 0;
 let pontos = 0;
 let pontosPossiveis = 0;
 
+let acertosFacil = 0;
+let acertosMedia = 0;
+let acertosDificil = 0;
+let totalFacil = 0;
+let totalMedia = 0;
+let totalDificil = 0;
+
 function sortearDaCategoria(categoria, quantidade) {
     let disponiveis = [];
 
@@ -528,9 +535,23 @@ function iniciarQuiz() {
     acertosCriador = 0;
     pontos = 0;
     pontosPossiveis = 0;
+    acertosFacil = 0;
+    acertosMedia = 0;
+    acertosDificil = 0;
+    totalFacil = 0;
+    totalMedia = 0;
+    totalDificil = 0;
 
     for (let i = 0; i < listaDeQuestoes.length; i++) {
         pontosPossiveis = pontosPossiveis + pontosDaQuestao(listaDeQuestoes[i]);
+
+        if (listaDeQuestoes[i].dificuldade == "facil") {
+            totalFacil++;
+        } else if (listaDeQuestoes[i].dificuldade == "media") {
+            totalMedia++;
+        } else {
+            totalDificil++;
+        }
     }
 
     span_certas.innerHTML = 0;
@@ -622,6 +643,14 @@ function responder() {
             } else {
                 acertosCriador++;
             }
+
+            if (questao.dificuldade == "facil") {
+                acertosFacil++;
+            } else if (questao.dificuldade == "media") {
+                acertosMedia++;
+            } else {
+                acertosDificil++;
+            }
         } else {
             erradas++;
             labels[escolhida].className = "opcao opcao-errada";
@@ -697,6 +726,12 @@ function salvarResultado() {
             acertosHistoriaServer: acertosHistoria,
             acertosCriadorServer: acertosCriador,
             pontosServer: pontos,
+            acertosFacilServer: acertosFacil,
+            acertosMediaServer: acertosMedia,
+            acertosDificilServer: acertosDificil,
+            totalFacilServer: totalFacil,
+            totalMediaServer: totalMedia,
+            totalDificilServer: totalDificil,
             totalPerguntasServer: quantidadeDeQuestoes,
             idUsuarioServer: sessionStorage.ID_USUARIO
         })
