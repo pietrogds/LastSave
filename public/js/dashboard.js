@@ -35,6 +35,12 @@ function buscarCuriosidades(idUsuario) {
             if (resposta.ok) {
                 resposta.json().then(function (resultado) {
                     kpi_curiosidades.innerHTML = resultado.total;
+
+                    if (resultado.total == 0) {
+                        var_curiosidades.innerHTML = "sorteie na aba História";
+                    } else {
+                        var_curiosidades.innerHTML = "na aba História";
+                    }
                 });
             }
         })
@@ -64,6 +70,80 @@ function mostrarIndicadores(tentativas) {
     kpi_melhor.innerHTML = melhor + " pts";
     kpi_media.innerHTML = media.toFixed(1).replace(".", ",") + "/" + total;
     kpi_ultima.innerHTML = ultima + " pts";
+
+    mostrarVariacoes(tentativas, media, melhor, ultima);
+}
+
+function mostrarVariacoes(tentativas, media, melhor, ultima) {
+    let quantidade = tentativas.length;
+
+    var_tentativas.innerHTML = "última em " + tentativas[quantidade - 1].data_resposta;
+    var_tentativas.className = "variacao";
+
+    if (quantidade == 1) {
+        var_melhor.innerHTML = "sua primeira partida";
+        var_melhor.className = "variacao";
+        var_media.innerHTML = "sua primeira partida";
+        var_media.className = "variacao";
+        var_ultima.innerHTML = "sua primeira partida";
+        var_ultima.className = "variacao";
+        return;
+    }
+
+    // Valores de antes da última partida, para comparar
+    let anterior = tentativas[quantidade - 2].pontos;
+    let melhorAntes = 0;
+    let somaAntes = 0;
+
+    for (let i = 0; i < quantidade - 1; i++) {
+        somaAntes = somaAntes + tentativas[i].acertos;
+
+        if (tentativas[i].pontos > melhorAntes) {
+            melhorAntes = tentativas[i].pontos;
+        }
+    }
+
+    let mediaAntes = somaAntes / (quantidade - 1);
+
+    // Melhor pontuação
+    if (ultima > melhorAntes) {
+        var_melhor.innerHTML = "▲ novo recorde! +" + (ultima - melhorAntes) + " pts";
+        var_melhor.className = "variacao variacao-subiu";
+    } else if (ultima == melhor) {
+        var_melhor.innerHTML = "igualou o recorde";
+        var_melhor.className = "variacao";
+    } else {
+        var_melhor.innerHTML = "faltaram " + (melhor - ultima) + " pts para bater";
+        var_melhor.className = "variacao";
+    }
+
+    // Média de acertos
+    let diferencaMedia = Number((media - mediaAntes).toFixed(1));
+
+    if (diferencaMedia > 0) {
+        var_media.innerHTML = "▲ +" + String(diferencaMedia).replace(".", ",") + " com a última partida";
+        var_media.className = "variacao variacao-subiu";
+    } else if (diferencaMedia < 0) {
+        var_media.innerHTML = "▼ " + String(diferencaMedia).replace(".", ",") + " com a última partida";
+        var_media.className = "variacao variacao-caiu";
+    } else {
+        var_media.innerHTML = "manteve a média";
+        var_media.className = "variacao";
+    }
+
+    // Última tentativa
+    let diferencaPontos = ultima - anterior;
+
+    if (diferencaPontos > 0) {
+        var_ultima.innerHTML = "▲ +" + diferencaPontos + " pts que a anterior";
+        var_ultima.className = "variacao variacao-subiu";
+    } else if (diferencaPontos < 0) {
+        var_ultima.innerHTML = "▼ " + diferencaPontos + " pts que a anterior";
+        var_ultima.className = "variacao variacao-caiu";
+    } else {
+        var_ultima.innerHTML = "mesma pontuação da anterior";
+        var_ultima.className = "variacao";
+    }
 }
 
 function plotarGraficoLinha(tentativas) {
